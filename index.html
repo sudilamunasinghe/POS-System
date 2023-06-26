@@ -9,20 +9,19 @@
 </head>
 <body>
     <form action="" id="form">
-        <input type="text" placeholder="Product Name" id="product"><br>
+        <input type="text" placeholder="Product Name" id="product-name"><br>
         <input type="number" placeholder="Quantity" id="quantity"><br>
-        <input type="number" placeholder="Unit Price" id="uprice"><br>
+        <input type="number" placeholder="Unit Price" id="unit-price"><br>
         <div class="buttons">
-            <input type="button" value="Run Again" id="run">
-            <input type="button" value="Proceed" id="exit">
+            <input type="button" value="Run Again" id="run" onclick="runAgain()">
+            <input type="button" value="Proceed" id="exit" onclick="proceed()">
         </div>
     </form>
-    <div class="output-container">
-        <h1 id="output1"></h1>
-        <h1 id="output2"></h1>
-        <h1 id="output3"></h1>
+    <div id="output">
+
     </div>
     
-    <script src="app.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>

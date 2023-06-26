@@ -1,53 +1,48 @@
-var product = document.getElementById('product');
-var quantity = document.getElementById('quantity');
-var uprice = document.getElementById('uprice');
-var run = document.getElementById('run');
-var exit = document.getElementById('exit');
-var form = document.getElementById('form');
+let products = [];
 
-var z = 0;
-var x = 0;
-var y = 0;
-// for (let z = 0; z++;) {
-    
-//     // if(run.length>0){
-//     //     z = 1;
-//     //     form(reset);
-//     // }
-//     // else{
-//     //     z = 0;
-//     // };
-// }
-    var tot = quantity.value + uprice.value;
-do{
-    var arrayProduct = [x];
-    arrayProduct[x] = product;
-
-    var arrayQuantity = [x];
-    arrayQuantity[x] = quantity;
-
-    var arrayUprice = [x];
-    arrayUprice[x] = uprice;
-
-    function eventrun(){
-        var z=2;
-        product.value = '';
-        quantity.value = '';
-        uprice.value = '';
-        console.log(arrayProduct[x])
-        console.log(arrayQuantity[x])
-        console.log(arrayUprice[x])
-        console.log(tot)
+    function runAgain() {
+      const productName = document.getElementById('product-name').value;
+      const unitPrice = parseFloat(document.getElementById('unit-price').value);
+      const quantity = parseInt(document.getElementById('quantity').value);
+      
+      if (productName && unitPrice && quantity) {
+        const product = {
+          name: productName,
+          price: unitPrice,
+          quantity: quantity
+        };
+        
+        products.push(product);
+        
+        // Clear the input fields
+        document.getElementById('product-name').value = '';
+        document.getElementById('unit-price').value = '';
+        document.getElementById('quantity').value = '';
+      }
     }
-    run.addEventListener('click',eventrun);
-}while(z=0);
-
-// function abc(){
-//     document.getElementById('output1').innerHTML = arrayProduct[1].value;
-// }
-// exit.addEventListener('click',abc)
-
-
-
-
-
+    
+    function proceed() {
+      let output = '<h2>Order Summary</h2>';
+      let totalPrice = 0;
+      
+      if (products.length === 0) {
+        output += '<p>No products added.</p>';
+        document.getElementById('output').style.display = "block";
+      } else {
+        output += '<table>';
+        output += '<tr><th>Product Name</th><th>Quantity</th><th>Unit Price</th><th>Sub Total</th></tr>'
+        products.forEach(function(product) {
+          const subtotal = product.price * product.quantity;
+          totalPrice += subtotal;
+          output += `<tr><td>${product.name}</td><td>${product.quantity}</td><td>${product.price.toFixed(2)}</td><td>${subtotal.toFixed(2)}</td></tr>`;
+        });
+        
+        output += `<tr><th>Total Price${totalPrice.toFixed(2)}</th></tr>`;
+        output += '</table>';
+        document.getElementById('output').style.display = "block";
+        
+      }
+      
+      
+      document.getElementById('output').innerHTML = output;
+    }
