@@ -8,20 +8,18 @@
     <script src="jquery.js"></script>
 </head>
 <body>
-    <form action="" id="form">
-        <input type="text" placeholder="Product Name" id="product-name"><br>
-        <input type="number" placeholder="Quantity" id="quantity"><br>
-        <input type="number" placeholder="Unit Price" id="unit-price"><br>
-        <div class="buttons">
-            <input type="button" value="Run Again" id="run" onclick="runAgain()">
-            <input type="button" value="Proceed" id="exit" onclick="proceed()">
-        </div>
-    </form>
-    <div id="output">
-
+    <div id="background">
+        <form action="" id="form">
+            <input type="text" placeholder="Product Name" id="product-name"><br>
+            <input type="number" placeholder="Unit Price" id="unit-price"><br>
+            <input type="number" placeholder="Quantity" id="quantity"><br>
+            <div class="buttons">
+                <input type="button" value="Add" id="run" onclick="runAgain()">
+                <input type="button" value="Proceed" id="exit" onclick="proceed()">
+            </div>
+        </form>
     </div>
-    
-    
+    <div id="output"></div>
     <script src="script.js"></script>
 </body>
 </html>
