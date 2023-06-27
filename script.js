@@ -22,7 +22,8 @@ let products = [];
     }
     
     function proceed() {
-      let output = '<h2>Order Summary</h2>';
+      let output = '<i class="fa-solid fa-xmark" id="close"></i>';
+      output += '<h2>Order Summary</h2>';
       let totalPrice = 0;
       document.getElementById('form').style.display = "none";
       if (products.length === 0) {
@@ -38,34 +39,26 @@ let products = [];
           output += `<tr><td>${product.name}</td><td>${product.quantity}</td><td>Rs.${product.price.toFixed(2)}</td><td>Rs. ${subtotal.toFixed(2)}</td></tr>`;
         });
         
-        output += `<tr><th>Total Price</th><td></td><td></td><td>Rs.${totalPrice.toFixed(2)}</td></tr>`;
+        output += `<tr><th>Total Price</th><td></td><td></td><td id="tot">Rs.${totalPrice.toFixed(2)}</td></tr>`;
         output += '</table>';
-        output += '<a href="print.html" target="_blank"><input type="button" value="Print" id="print"></a>'
+        output += '<input type="button" id="checkout" value="Checkout">'
         document.getElementById('output').style.visibility = "visible";
         document.getElementById('output').style.top = "50%";
       }
       
       
       document.getElementById('output').innerHTML = output;
-      function print(){
-        let output_p = '<h2>Order Summary</h2>';
-      let totalPrice = 0;
+      function check(){
+        output += '<input type="text" id="customer" placeholder="Enter the Customer Price">'
+        var checkout = parseInt(document.getElementById('checkout').value);
+        var tot = document.getElementById('tot').value;
+        alert(document.getElementById('tot').value);
+        remain = totalPrice - checkout;
+        console.log('Sudila Munasinghe')
+        document.getElementById('output').innerHTML = output;
+
       
-      if (products.length === 0) {
-        output_p += '<p>No products added.</p>';
-      } else {
-        output_p += '<table>';
-        output_p += '<tr><th>Product Name</td><td>Quantity</td><td>Unit Price</td></tr>'
-        products.forEach(function(product) {
-          const subtotal = product.price * product.quantity;
-          totalPrice += subtotal;
-          output_p += `<tr><td>${product.name}</td><td>${product.quantity}</td><td>$${product.price.toFixed(2)}</td><td>$${subtotal.toFixed(2)}</td></tr>`;
-        });
-        output_p += '</table>';
-        
-        output_p += `<p>Total Price: $${totalPrice.toFixed(2)}</p>`;
       }
-      document.getElementById('output_p').innerHTML = output_p;
+      document.getElementById('checkout').addEventListener('click',check);
     }
-  }
     
