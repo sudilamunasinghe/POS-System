@@ -102,7 +102,7 @@
     color: rgb(168, 0, 0);
     font-size: 25px;
 }
-#checkout{
+#checkout, #next{
     background-color: rgb(0, 132, 255);
     width: 20%;
     box-sizing: border-box;
@@ -116,7 +116,7 @@
     border: 2px solid rgb(0, 132, 255);
     border-radius: 8px;
 }
-#checkout:hover{
+#checkout:hover, #next:hover{
     background-color: rgb(0, 107, 207);
 }
 #customer{

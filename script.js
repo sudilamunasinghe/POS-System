@@ -49,16 +49,30 @@ let products = [];
       
       document.getElementById('output').innerHTML = output;
       function check(){
-        output += '<input type="text" id="customer" placeholder="Enter the Customer Price">'
-        var checkout = parseInt(document.getElementById('checkout').value);
-        var tot = document.getElementById('tot').value;
-        alert(document.getElementById('tot').value);
-        remain = totalPrice - checkout;
-        console.log('Sudila Munasinghe')
+        
+        output += '<input type="number" id="customer" placeholder="Enter the Customer Price">';
+        output += '<input type="button" id="next" value="Next">';
         document.getElementById('output').innerHTML = output;
-
-      
+        console.log(output);
+        document.getElementById('checkout').style.display = "none";
       }
-      document.getElementById('checkout').addEventListener('click',check);
+      document.getElementById('checkout').addEventListener('click', check);
+      
+      
     }
+    function next(){
+      var total = totalPrice.toFixed(2);
+      var customer = parseInt(document.getElementById('customer').value);
+      var remain = total - customer;
+      console.log('Sudila Munasinghe');
+      console.log(remain);
+      // output += '<h2>Remaining Balance :';
+      // output += (remain);
+      // output += '</h2>'
+      // var checkout = parseInt(document.getElementById('checkout').value);
+      // var total = totalPrice.toFixed(2);
+      // var remain = total - checkout;
+      
+    }
+    document.getElementById('next').addEventListener('click',next);
     
