@@ -67,10 +67,6 @@ body{
 #run{
     margin-right: 20px;
 }
-.output-container{
-    background-color: aquamarine;
-    color: #000000;
-}
 #output{
     position: absolute;
     background-color: #ffffffc5;
@@ -141,12 +137,6 @@ body{
 }
 #customer{
     margin-top: 30px;
-}
-.fa-xmark{
-    font-size: 28px;
-    float: right;
-    margin-bottom: 20px;
-    cursor: pointer;
 }
 .remaining, .tot, .paid{
     margin-top: 10px;
