@@ -1,5 +1,5 @@
 let products = [];
-
+    //Function for Add Button-------------------------//
     function runAgain() {
       const productName = document.getElementById('product-name').value;
       const unitPrice = parseFloat(document.getElementById('unit-price').value);
@@ -21,12 +21,15 @@ let products = [];
       }
     }
     
+    //Function for Proceed Button//
+
     function proceed() {
       let output = '<i class="fa-solid fa-xmark"></i>';
       output += '<h2>Order Summary</h2>';
       let totalPrice = 0;
       document.getElementById('form').style.display = "none";
 
+      //Get Data from Array
       if (products.length === 0) {
         output += '<p>No products added.</p>';
         document.getElementById('output').style.visibility = "visible";
@@ -49,8 +52,10 @@ let products = [];
         document.getElementById('output').style.top = "50%";
       }
       
-      
+      //Display Output
       document.getElementById('output').innerHTML = output;
+
+      //Function for Checkout button
       function check(){
         
         output += '<input type="number" id="customer" placeholder="Enter the Customer Price">';
@@ -59,6 +64,7 @@ let products = [];
         console.log(output);
         document.getElementById('checkout').style.display = "none";
 
+        //Function for Next Button
         function next(){
           var total = totalPrice.toFixed(2);
           let customer = document.getElementById('customer').value;
@@ -69,21 +75,20 @@ let products = [];
           output += '<h3 class="remaining">Remaining Balance : Rs. ';
           output += (remain);
           output += '</h3>';
+          output += '<input type="button" id="print" value="Print">';
           document.getElementById('output').innerHTML = output;
           document.getElementById('next').style.display = "none";
           document.getElementById('checkout').style.display = "none";
           document.getElementById('customer').style.display = "none";
+
+
         }
         document.getElementById('next').addEventListener('click', next);
       }
       document.getElementById('checkout').addEventListener('click', check);
       
+      
+      
     }
-    // $('#close').click(function(){
-    //   $('#output').css({
-    //     top: '40%',
-    //     visibility: 'hidden',
-    //   })
-    // })
     
     
