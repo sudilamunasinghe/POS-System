@@ -23,9 +23,8 @@ let products = [];
     
     //Function for Proceed Button//
 
-    function proceed() {
-      let output = '<i class="fa-solid fa-xmark"></i>';
-      output += '<h2>Order Summary</h2>';
+    function proceed() {  
+      let output = '<h2>Order Summary</h2>';
       let totalPrice = 0;
       document.getElementById('form').style.display = "none";
 
@@ -58,7 +57,7 @@ let products = [];
       //Function for Checkout button
       function check(){
         
-        output += '<input type="number" id="customer" placeholder="Enter the Customer Price">';
+        output += '<input type="number" id="customer" placeholder="Enter the Paid Amount">';
         output += '<input type="button" id="next" value="Next">';
         document.getElementById('output').innerHTML = output;
         console.log(output);
