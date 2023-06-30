@@ -74,13 +74,42 @@ let products = [];
           output += '<h3 class="remaining">Remaining Balance : Rs. ';
           output += (remain);
           output += '</h3>';
-          output += '<input type="button" id="print" value="Print">';
+          output += '<input type="button" id="invoice" value="Generate Invoice">';
           document.getElementById('output').innerHTML = output;
           document.getElementById('next').style.display = "none";
           document.getElementById('checkout').style.display = "none";
           document.getElementById('customer').style.display = "none";
 
-
+          function invoice(){
+            console.log('Sudila Munasinghe');
+            console.log(totalPrice.toFixed(2));
+            let display = '<html>';
+            display += '<head><link rel="stylesheet" href="style.css"></head>';
+            display += '<body class="bill">';
+            display += '<h1 class="bill-heading">SM Products</h1>'
+            display += '<table id="invoice_table">';
+            display += '<tr><th>Product Name</th><th>Quantity</th><th>Unit Price</th><th>Sub Total</th></tr>'
+            products.forEach(function(product) {
+              const subtotal = product.price * product.quantity;
+              totalPrice += subtotal;
+              display += `<tr><td>${product.name}</td><td>${product.quantity}</td><td>Rs.${product.price.toFixed(2)}</td><td>Rs. ${subtotal.toFixed(2)}</td></tr>`;
+              document.getElementById('display').innerHTML = display;
+            });
+            display += `<tr><th>Total Price</th><td></td><td></td><td id="tot">Rs. ${totalPrice.toFixed(2)}</td></tr>`;
+            display += `<tr><th>Paid Amount</th><td></td><td></td><td id="tot">Rs. ${customer}.00</td></tr>`;
+            display += `<tr><th>Balance</th><td></td><td></td><td id="tot">Rs. ${remain}.00</td></tr>`;
+            display += '</table>';
+            // display += '<h3 class="tot">Total Price : Rs. ';
+            // display += totalPrice.toFixed(2);
+            // display += '</h3>'
+            display += '</body>';
+            display += '</html>';
+            var popup = window.open("", "_blank");
+            popup.document.open();
+            popup.document.write(display);
+            popup.document.close();
+          }
+          document.getElementById('invoice').addEventListener('click',invoice);
         }
         document.getElementById('next').addEventListener('click', next);
       }
@@ -89,5 +118,6 @@ let products = [];
       
       
     }
+    
     
     
