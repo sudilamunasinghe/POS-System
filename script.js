@@ -70,10 +70,10 @@ let products = [];
           var remain = customer - total;
           output += '<h3 class="paid">Paid Amount : Rs. ';
           output += customer;
-          output += '</h3>'
+          output += '.00</h3>'
           output += '<h3 class="remaining">Remaining Balance : Rs. ';
           output += (remain);
-          output += '</h3>';
+          output += '.00</h3>';
           output += '<input type="button" id="invoice" value="Generate Invoice">';
           document.getElementById('output').innerHTML = output;
           document.getElementById('next').style.display = "none";
@@ -89,6 +89,7 @@ let products = [];
             display += '<h1 class="bill-heading">SM Products</h1>'
             display += '<table id="invoice_table">';
             display += '<tr><th>Product Name</th><th>Quantity</th><th>Unit Price</th><th>Sub Total</th></tr>'
+            totalPrice = 0;
             products.forEach(function(product) {
               const subtotal = product.price * product.quantity;
               totalPrice += subtotal;
